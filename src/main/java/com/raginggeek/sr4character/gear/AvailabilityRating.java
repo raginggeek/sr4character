@@ -35,6 +35,11 @@ public class AvailabilityRating {
 
     @Override
     public String toString() {
-        return "" + rating + classification.substring(0,1);
+        if (classification.isEmpty()) {
+            return "" + rating;
+        } else {
+            return "" + rating + classification.substring(0,1);
+        }
+
     }
 }

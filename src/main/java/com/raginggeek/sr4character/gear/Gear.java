@@ -1,40 +1,12 @@
 package com.raginggeek.sr4character.gear;
 
 abstract public class Gear {
-    public static final String DEFAULT_NAME = "Custom Gear";
-    public static final String DEFAULT_DESCRIPTION = "Custom Gear Item";
-    public static final int DEFAULT_COST = 0;
-    public static final boolean DEFAULT_WIRELESS = true;
-    public static final boolean DEFAULT_RFID = true;
-
-    public Gear() {
-        this(DEFAULT_NAME);
-    }
-
-    public Gear(String name) {
-        this(name, DEFAULT_COST);
-    }
-
-    public Gear(String name, int cost){
-        this(name, cost, new AvailabilityRating());
-    }
-
-    public Gear(String name, int cost, AvailabilityRating ar) {
-        this(name, cost, DEFAULT_DESCRIPTION, ar);
-    }
-
-    public Gear(String name, int cost, String description, AvailabilityRating ar) {
-        this(name, description, cost, ar, DEFAULT_WIRELESS, DEFAULT_RFID);
-    }
-
-    public Gear(String name,
-                String description,
-                int cost,
-                AvailabilityRating ar,
-                boolean wireless,
-                boolean rfid) {
-        this(name, description, cost, ar, wireless, rfid, new MatrixAttributes());
-    }
+    protected static final String DEFAULT_NAME = "Custom Gear";
+    protected static final String DEFAULT_DESCRIPTION = "Custom Gear Item";
+    protected static final GearSizes DEFAULT_SIZE = GearSizes.NORMAL;
+    protected static final int DEFAULT_COST = 0;
+    protected static final boolean DEFAULT_WIRELESS = true;
+    protected static final boolean DEFAULT_RFID = true;
 
     public Gear(String name,
                 String description,
@@ -42,6 +14,7 @@ abstract public class Gear {
                 AvailabilityRating ar,
                 boolean wireless,
                 boolean rfid,
+                GearSizes size,
                 MatrixAttributes ma) {
         this.setName(name);
         this.setDescription(description);
@@ -49,6 +22,7 @@ abstract public class Gear {
         this.setAvailability(ar);
         this.setWireless(wireless);
         this.setRfid(rfid);
+        this.setSize(size);
         this.setMatrixAttributes(ma);
     }
 
@@ -100,6 +74,14 @@ abstract public class Gear {
         this.rfid = rfid;
     }
 
+    public void setSize(GearSizes size) {
+        this.size = size;
+    }
+
+    public GearSizes getSize() {
+        return this.size;
+    }
+
     public MatrixAttributes getMatrixAttributes() {
         return matrixAttributes;
     }
@@ -115,6 +97,7 @@ abstract public class Gear {
     protected boolean wireless;
     protected boolean rfid;
     protected MatrixAttributes matrixAttributes;
+    protected GearSizes size;
 
 
 }
