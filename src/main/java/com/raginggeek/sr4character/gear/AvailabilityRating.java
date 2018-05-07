@@ -1,4 +1,4 @@
-package gear;
+package com.raginggeek.sr4character.gear;
 
 public class AvailabilityRating {
     protected int rating = 0;
