@@ -12,7 +12,7 @@ public class Bioware extends Augmentation {
     }
 
     public Bioware(String name) {
-        this(DEFAULT_NAME, DEFAULT_COST);
+        this(name, DEFAULT_COST);
     }
 
     public Bioware(String name, int cost) {
